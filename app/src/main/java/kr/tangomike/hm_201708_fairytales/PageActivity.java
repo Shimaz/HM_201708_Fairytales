@@ -32,7 +32,7 @@ public class PageActivity extends Activity {
 
     @Override
     public void onDestroy(){
-        super.onDestroy(); 
+        super.onDestroy();
         unregisterReceiver(mReceiver);
     }
 }
