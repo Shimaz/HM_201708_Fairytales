@@ -19,6 +19,7 @@
         </activity>
         <activity android:name=".IndexActivity" />
         <activity android:name=".PageActivity"></activity>
+        <activity android:name=".InfoActivity" />
     </application>
 
 </manifest>
