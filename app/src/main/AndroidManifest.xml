@@ -2,6 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="kr.tangomike.hm_201708_fairytales">
 
+    <uses-sdk android:minSdkVersion="23" android:maxSdkVersion="26" android:targetSdkVersion="26"></uses-sdk>
+
     <application
         android:name=".DataCollection"
         android:allowBackup="true"
