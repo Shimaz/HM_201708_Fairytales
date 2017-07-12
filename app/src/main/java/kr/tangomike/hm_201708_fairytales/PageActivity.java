@@ -22,7 +22,7 @@ public class PageActivity extends Activity {
     private IntentFilter mFilter = new IntentFilter("shimaz.restart");
     private DataCollection dc;
     private ViewPager pager;
-    
+
 
 
 
