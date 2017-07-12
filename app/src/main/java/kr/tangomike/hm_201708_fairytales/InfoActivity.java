@@ -7,7 +7,10 @@ import android.content.Intent;
 import android.content.IntentFilter;
 import android.os.Bundle;
 
-public class IndexActivity extends Activity {
+/**
+ * Created by shima on 2017-07-12.
+ */
+public class InfoActivity extends Activity {
 
     private BroadcastReceiver mReceiver = new BroadcastReceiver() {
         @Override
@@ -16,14 +19,14 @@ public class IndexActivity extends Activity {
         }
     };
 
-    private IntentFilter mFilter = new IntentFilter("shimaz.restart");
+    private IntentFilter mFilter= new IntentFilter("shimaz.restart");
+
 
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_index);
-
+        setContentView(R.layout.activity_info);
         registerReceiver(mReceiver, mFilter);
 
     }
