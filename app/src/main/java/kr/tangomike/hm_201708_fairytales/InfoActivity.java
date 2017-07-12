@@ -6,6 +6,9 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.os.Bundle;
+import android.view.View;
+import android.view.WindowManager;
+import android.widget.Button;
 
 /**
  * Created by shima on 2017-07-12.
@@ -28,6 +31,17 @@ public class InfoActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_info);
         registerReceiver(mReceiver, mFilter);
+        super.getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
+
+        Button btnClose = (Button)findViewById(R.id.btn_close);
+        btnClose.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v){
+
+                finish();
+
+            }
+        });
 
     }
 
