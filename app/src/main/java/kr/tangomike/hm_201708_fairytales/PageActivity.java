@@ -6,7 +6,9 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.os.Bundle;
+import android.support.v4.view.ViewPager;
 import android.view.WindowManager;
+
 
 public class PageActivity extends Activity {
 
@@ -19,6 +21,9 @@ public class PageActivity extends Activity {
 
     private IntentFilter mFilter = new IntentFilter("shimaz.restart");
     private DataCollection dc;
+    private ViewPager pager;
+    
+
 
 
     @Override
