@@ -19,6 +19,7 @@ public class IndexActivity extends Activity {
 
     private IntentFilter mFilter = new IntentFilter("shimaz.restart");
 
+    private int bookNumber;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,6 +28,8 @@ public class IndexActivity extends Activity {
         super.getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
 
         registerReceiver(mReceiver, mFilter);
+
+        bookNumber = getIntent().getIntExtra("bookNumber", 1);
 
     }
 

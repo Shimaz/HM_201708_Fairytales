@@ -33,8 +33,8 @@ public class MainActivity extends Activity {
 
         registerReceiver(mReceiver, mFilter);
 
-        btnBook01 = (Button)findViewById(R.id.btn_book_1);
-        btnBook02 = (Button)findViewById(R.id.btn_book_2);
+        btnBook01 = findViewById(R.id.btn_book_1);
+        btnBook02 = findViewById(R.id.btn_book_2);
 
         btnBook01.setOnClickListener(new View.OnClickListener(){
 
