@@ -11,10 +11,12 @@ import android.support.annotation.Nullable;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewGroupCompat;
 import android.support.v4.view.ViewPager;
+import android.support.v4.widget.TextViewCompat;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.WindowManager;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 
 public class PageActivity extends Activity {
@@ -31,6 +33,9 @@ public class PageActivity extends Activity {
     private ViewPager pager;
     private FairytalePagerAdapter adapter;
 
+    private int pageNumber;
+    private int bookNumber;
+
 
 
     @Override
@@ -40,12 +45,15 @@ public class PageActivity extends Activity {
         setContentView(R.layout.activity_page);
         registerReceiver(mReceiver, mFilter);
 
+        dc = (DataCollection)getApplicationContext();
+        pageNumber = getIntent().getIntExtra("pageNumber", 0);
+        bookNumber = getIntent().getIntExtra("bookNumber", 1);
 
 
         adapter = new FairytalePagerAdapter();
         pager = findViewById(R.id.vp_page);
         pager.setAdapter(adapter);
-        pager.setCurrentItem(0);
+
 
         ViewPager.OnPageChangeListener listener = new ViewPager.OnPageChangeListener() {
 
@@ -56,6 +64,7 @@ public class PageActivity extends Activity {
 
             @Override
             public void onPageSelected(int position) {
+                android.util.Log.i("shimaz", "" + position + ":" + adapter.getCount());
 
             }
 
@@ -67,6 +76,9 @@ public class PageActivity extends Activity {
         };
 
         pager.addOnPageChangeListener(listener);
+
+        pager.setCurrentItem(pageNumber);
+        android.util.Log.i("shimaz", "" + pageNumber);
 
     }
 
@@ -83,9 +95,14 @@ public class PageActivity extends Activity {
         @Override
         public Object instantiateItem(ViewGroup container, int position){
             View page = getLayoutInflater().inflate(R.layout.layout_page, container, false);
-            ImageView iv = findViewById(R.id.iv_page);
-            iv.setImageResource(getResources().getIdentifier("page_img" + position, "drawable", getPackageName()));
+            ImageView iv = page.findViewById(R.id.iv_page);
+//            iv.setImageResource(getResources().getIdentifier("page_img" + position, "drawable", getPackageName()));
+            iv.setImageResource(getResources().getIdentifier("a0", "drawable", getPackageName()));
+            TextView tv = page.findViewById(R.id.tv_debug);
+            tv.setText(""+position);
             container.addView(page);
+
+
 
             return page;
         }
@@ -102,7 +119,12 @@ public class PageActivity extends Activity {
 
         @Override
         public int getCount() {
-            return 0;
+            if(bookNumber == 1){
+                return 169;
+            }else{
+                return 289;
+            }
+
         }
 
         @Override
