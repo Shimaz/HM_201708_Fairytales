@@ -24,7 +24,7 @@ public class InfoActivity extends Activity {
 
     private IntentFilter mFilter= new IntentFilter("shimaz.restart");
 
-
+    private DataCollection dc;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -33,11 +33,14 @@ public class InfoActivity extends Activity {
         registerReceiver(mReceiver, mFilter);
         super.getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
 
+        dc = (DataCollection)getApplicationContext();
+
         Button btnClose = (Button)findViewById(R.id.btn_close);
         btnClose.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){
 
+                dc.resetTimer();
                 finish();
 
             }

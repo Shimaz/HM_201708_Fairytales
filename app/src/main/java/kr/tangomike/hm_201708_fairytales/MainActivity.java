@@ -6,6 +6,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.os.Bundle;
+import android.provider.ContactsContract;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.Button;
@@ -25,7 +26,9 @@ public class MainActivity extends Activity {
 
     private Button btnBook01;
     private Button btnBook02;
+    private Button btnBook03;
 
+    private DataCollection dc;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,8 +38,12 @@ public class MainActivity extends Activity {
 
         registerReceiver(mReceiver, mFilter);
 
-        btnBook01 = findViewById(R.id.btn_book_1);
-        btnBook02 = findViewById(R.id.btn_book_2);
+        dc = (DataCollection)getApplicationContext();
+
+
+        btnBook01 = (Button)findViewById(R.id.btn_book_1);
+        btnBook02 = (Button)findViewById(R.id.btn_book_2);
+        btnBook03 = (Button)findViewById(R.id.btn_book_3);
 
         btnBook01.setOnClickListener(new View.OnClickListener(){
 
@@ -64,8 +71,29 @@ public class MainActivity extends Activity {
             }
         });
 
+        btnBook03.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MainActivity.this, IndexActivity.class);
+                intent.putExtra("bookNumber", 3);
+                startActivity(intent);
+                overridePendingTransition(R.anim.fade_in_short, R.anim.fade_out_short);
+            }
+        });
+
     }
 
+    @Override
+    public void onResume(){
+        super.onResume();
+        dc.stopTick();
+    }
+
+    @Override
+    public void onPause(){
+        super.onPause();
+        dc.startTick();
+    }
 
     @Override
     public void onDestroy(){
