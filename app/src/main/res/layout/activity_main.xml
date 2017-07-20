@@ -2,31 +2,31 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@android:color/background_light">
+    android:background="@drawable/cover_bg">
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:background="@drawable/btn_temp"
-        android:layout_marginTop="100dp"
-        android:layout_marginLeft="100dp"
+        android:background="@drawable/btn_book_1"
+        android:layout_marginTop="80dp"
+        android:layout_marginLeft="493dp"
         android:id="@+id/btn_book_1"/>
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:background="@drawable/btn_temp"
-        android:layout_marginTop="100dp"
-        android:layout_marginLeft="300dp"
+        android:background="@drawable/btn_book_2"
+        android:layout_marginTop="80dp"
+        android:layout_marginLeft="284dp"
         android:id="@+id/btn_book_2"/>
 
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:background="@drawable/btn_temp"
-        android:layout_marginTop="100dp"
-        android:layout_marginLeft="500dp"
+        android:background="@drawable/btn_book_3"
+        android:layout_marginTop="80dp"
+        android:layout_marginLeft="75dp"
         android:id="@+id/btn_book_3"/>
 
 </RelativeLayout>

@@ -1,13 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:id="@+id/rl_index">
 
     <HorizontalScrollView
         android:id="@+id/scrl_index"
-        android:layout_width="700dp"
-        android:layout_height="wrap_content"
+        android:layout_width="545dp"
+        android:layout_height="775dp"
+        android:layout_marginLeft="0dp"
+        android:layout_marginTop="123dp"
         android:layoutDirection="rtl"
+
         >
         <LinearLayout
             android:layout_width="wrap_content"
@@ -18,5 +22,33 @@
             ></LinearLayout>
 
     </HorizontalScrollView>
+
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="478.5dp"
+        android:layout_marginTop="123dp"
+        android:background="@drawable/list_scroll_cover"/>
+
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/btn_list_home"
+        android:background="@drawable/btn_list_home"
+        android:layout_marginLeft="587dp"
+        android:layout_marginTop="811dp"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/btn_list_info"
+        android:background="@drawable/btn_list_info"
+        android:layout_marginLeft="587dp"
+        android:layout_marginTop="728dp"
+        />
+
+
 
 </RelativeLayout>

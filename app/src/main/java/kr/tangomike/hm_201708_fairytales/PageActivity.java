@@ -21,6 +21,7 @@ import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 
@@ -50,7 +51,7 @@ public class PageActivity extends Activity {
     private Button btnNext;
     private Button btnBack;
 
-    private LinearLayout llControl;
+    private RelativeLayout llControl;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -68,6 +69,8 @@ public class PageActivity extends Activity {
         pager = (ViewPager)findViewById(R.id.vp_page);
         pager.setAdapter(adapter);
         pager.setCurrentItem(pageNumber);
+
+        android.util.Log.i("shimaz", "" + pageNumber);
 
         isMenuOn = true;
 
@@ -175,7 +178,7 @@ public class PageActivity extends Activity {
             }
         });
 
-        llControl = (LinearLayout)findViewById(R.id.ll_control);
+        llControl = (RelativeLayout)findViewById(R.id.ll_control);
 
     }
 
@@ -205,7 +208,7 @@ public class PageActivity extends Activity {
 
             View page = getLayoutInflater().inflate(R.layout.layout_page, container, false);
             ImageView iv = (ImageView)page.findViewById(R.id.iv_page);
-            iv.setImageResource(getResources().getIdentifier("a" + (position % 10), "drawable", getPackageName()));
+            iv.setImageResource(getResources().getIdentifier("book_" + bookNumber + "_" + position, "drawable", getPackageName()));
             TextView tv = (TextView)page.findViewById(R.id.tv_debug);
             tv.setText("" + position);
 
@@ -231,7 +234,7 @@ public class PageActivity extends Activity {
         @Override
         public int getCount() {
             if(bookNumber == 1){
-                return 169;
+                return 189;
             }else if(bookNumber == 2){
                 return 289;
             }else{

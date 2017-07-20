@@ -12,32 +12,37 @@
 
 
 
-    <LinearLayout
+    <RelativeLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="400dp"
-        android:layout_marginTop="900dp"
+        android:layout_marginLeft="468dp"
+        android:layout_marginTop="925dp"
         android:id="@+id/ll_control"
-        android:orientation="horizontal">
+        android:background="@drawable/page_nav_bg">
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/btn_prev"
-            android:text="prev"
-            />
+            android:background="@drawable/btn_page_next"
+            android:layout_marginLeft="18dp"
+            android:layout_marginTop="7dp"/>
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/btn_next"
-            android:text="next"/>
+            android:background="@drawable/btn_page_prev"
+            android:layout_marginLeft="95dp"
+            android:layout_marginTop="7dp"/>
 
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/btn_back"
-            android:text="Back"/>
+            android:background="@drawable/btn_page_list"
+            android:layout_marginLeft="172dp"
+            android:layout_marginTop="7dp"/>
 
 
-    </LinearLayout>
+    </RelativeLayout>
 
 </RelativeLayout>
