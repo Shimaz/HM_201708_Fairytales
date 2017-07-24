@@ -6,21 +6,15 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
 import android.support.v4.view.PagerAdapter;
-import android.support.v4.view.ViewGroupCompat;
 import android.support.v4.view.ViewPager;
-import android.support.v4.widget.TextViewCompat;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.WindowManager;
-import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
@@ -39,7 +33,7 @@ public class PageActivity extends Activity {
     private ViewPager pager;
     private FairytalePagerAdapter adapter;
 
-    private int pageNumber;
+//    private int pageNumber;
     private int bookNumber;
 
     private float posX;
@@ -50,6 +44,7 @@ public class PageActivity extends Activity {
     private Button btnPrev;
     private Button btnNext;
     private Button btnBack;
+    private Button btnIndex;
 
     private RelativeLayout llControl;
 
@@ -61,16 +56,16 @@ public class PageActivity extends Activity {
         registerReceiver(mReceiver, mFilter);
 
         dc = (DataCollection)getApplicationContext();
-        pageNumber = getIntent().getIntExtra("pageNumber", 0);
+//        pageNumber = getIntent().getIntExtra("pageNumber", 0);
         bookNumber = getIntent().getIntExtra("bookNumber", 1);
 
 
         adapter = new FairytalePagerAdapter();
         pager = (ViewPager)findViewById(R.id.vp_page);
         pager.setAdapter(adapter);
-        pager.setCurrentItem(pageNumber);
+        pager.setCurrentItem(adapter.getCount() - 1);
 
-        android.util.Log.i("shimaz", "" + pageNumber);
+
 
         isMenuOn = true;
 
@@ -146,12 +141,14 @@ public class PageActivity extends Activity {
         btnNext = (Button)findViewById(R.id.btn_next);
         btnPrev = (Button)findViewById(R.id.btn_prev);
         btnBack = (Button)findViewById(R.id.btn_back);
+        btnIndex = (Button)findViewById(R.id.btn_index);
 
         btnNext.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 dc.resetTimer();
                 if(isMenuOn) {
+                    dc.click();
                     if(pager.getCurrentItem() < adapter.getCount()) pager.setCurrentItem(pager.getCurrentItem() + 1 , true);
                 }
 
@@ -163,6 +160,7 @@ public class PageActivity extends Activity {
             public void onClick(View v) {
                 dc.resetTimer();
                 if(isMenuOn){
+                    dc.click();
                     if(pager.getCurrentItem() > 0) pager.setCurrentItem(pager.getCurrentItem() - 1, true);
                 }
 
@@ -173,12 +171,33 @@ public class PageActivity extends Activity {
             @Override
             public void onClick(View v) {
                 dc.resetTimer();
-                finish();
-                overridePendingTransition(R.anim.fade_in_short, R.anim.fade_out_short);
+                if(isMenuOn){
+                    dc.click();
+                    finish();
+                    overridePendingTransition(R.anim.fade_in_short, R.anim.fade_out_short);
+                }
+
+            }
+        });
+
+
+        btnIndex.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dc.resetTimer();
+                if(isMenuOn){
+                    dc.click();
+                    Intent intent = new Intent(PageActivity.this ,IndexAltActivity.class);
+                    startActivityForResult(intent, RESULT_OK);
+                    overridePendingTransition(R.anim.fade_in_short, R.anim.fade_out_short);
+                }
+
             }
         });
 
         llControl = (RelativeLayout)findViewById(R.id.ll_control);
+
+
 
     }
 
@@ -200,6 +219,18 @@ public class PageActivity extends Activity {
         unregisterReceiver(mReceiver);
     }
 
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data){
+
+        dc.resetTimer();
+
+        if(resultCode == RESULT_OK){
+            int pn = data.getIntExtra("pangeNumber" , 0);
+            pager.setCurrentItem(pn, false);
+
+        }
+
+    }
 
     public class FairytalePagerAdapter extends PagerAdapter{
 
@@ -236,7 +267,7 @@ public class PageActivity extends Activity {
             if(bookNumber == 1){
                 return 189;
             }else if(bookNumber == 2){
-                return 289;
+                return 292;
             }else{
                 return 300;
             }

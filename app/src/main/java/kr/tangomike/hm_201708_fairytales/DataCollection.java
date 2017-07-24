@@ -2,6 +2,7 @@ package kr.tangomike.hm_201708_fairytales;
 
 import android.app.Application;
 import android.content.Intent;
+import android.media.MediaPlayer;
 import android.os.Handler;
 import android.os.Message;
 
@@ -15,6 +16,7 @@ public class DataCollection extends Application {
     private boolean isTicking = false;
     private Handler mHandler;
 
+    private MediaPlayer click01;
 
     public void onCreate(){
         super.onCreate();
@@ -44,7 +46,7 @@ public class DataCollection extends Application {
 
         };
 
-
+        click01 = MediaPlayer.create(this, R.raw.click01);
 
     }
 
@@ -61,6 +63,10 @@ public class DataCollection extends Application {
         ticktime = 0;
         isTicking = true;
         mHandler.sendEmptyMessageDelayed(0, 1000);
+    }
+
+    public void click(){
+        click01.start();
     }
 
 }

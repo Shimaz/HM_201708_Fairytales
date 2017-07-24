@@ -28,6 +28,11 @@ public class MainActivity extends Activity {
     private Button btnBook02;
     private Button btnBook03;
 
+    private Button btnInfo01;
+    private Button btnInfo02;
+    private Button btnInfo03;
+
+
     private DataCollection dc;
 
     @Override
@@ -49,8 +54,9 @@ public class MainActivity extends Activity {
 
             @Override
             public void onClick(View v){
-                Intent intent = new Intent(MainActivity.this, IndexActivity.class);
+                Intent intent = new Intent(MainActivity.this, PageActivity.class);
                 intent.putExtra("bookNumber", 1);
+                dc.click();
                 startActivity(intent);
                 overridePendingTransition(R.anim.fade_in_short, R.anim.fade_out_short);
 
@@ -62,9 +68,10 @@ public class MainActivity extends Activity {
             @Override
             public void onClick(View v) {
 
-                Intent intent = new Intent(MainActivity.this, IndexActivity.class);
+                Intent intent = new Intent(MainActivity.this, PageActivity.class);
                 intent.putExtra("bookNumber", 2);
                 startActivity(intent);
+                dc.click();
                 overridePendingTransition(R.anim.fade_in_short, R.anim.fade_out_short);
 
 
@@ -74,12 +81,52 @@ public class MainActivity extends Activity {
         btnBook03.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(MainActivity.this, IndexActivity.class);
+                Intent intent = new Intent(MainActivity.this, PageActivity.class);
                 intent.putExtra("bookNumber", 3);
+                dc.click();
                 startActivity(intent);
                 overridePendingTransition(R.anim.fade_in_short, R.anim.fade_out_short);
             }
         });
+
+        btnInfo01 = (Button)findViewById(R.id.btn_info_1);
+        btnInfo01.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, InfoActivity.class);
+                intent.putExtra("bookNumber", 1);
+                dc.click();
+                startActivity(intent);
+                overridePendingTransition(R.anim.fade_in_short, R.anim.fade_out_short);
+            }
+        });
+
+        btnInfo02 = (Button)findViewById(R.id.btn_info_2);
+        btnInfo02.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, InfoActivity.class);
+                intent.putExtra("bookNumber", 2);
+                dc.click();
+                startActivity(intent);
+                overridePendingTransition(R.anim.fade_in_short, R.anim.fade_out_short);
+            }
+        });
+
+        btnInfo03 = (Button)findViewById(R.id.btn_info_3);
+        btnInfo03.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, InfoActivity.class);
+                intent.putExtra("bookNumber", 3);
+                dc.click();
+                startActivity(intent);
+                overridePendingTransition(R.anim.fade_in_short, R.anim.fade_out_short);
+
+            }
+        });
+
+
 
     }
 

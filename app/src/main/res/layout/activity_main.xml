@@ -29,4 +29,25 @@
         android:layout_marginLeft="75dp"
         android:id="@+id/btn_book_3"/>
 
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="info 1"
+        android:layout_marginLeft="0dp"
+        android:id="@+id/btn_info_1"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="info 2"
+        android:layout_marginLeft="150dp"
+        android:id="@+id/btn_info_2"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="info 3"
+        android:layout_marginLeft="300dp"
+        android:id="@+id/btn_info_3"/>
+
 </RelativeLayout>
