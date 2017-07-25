@@ -188,7 +188,9 @@ public class PageActivity extends Activity {
                 if(isMenuOn){
                     dc.click();
                     Intent intent = new Intent(PageActivity.this ,IndexAltActivity.class);
-                    startActivityForResult(intent, RESULT_OK);
+                    intent.putExtra("bookNumber", bookNumber);
+                    startActivityForResult(intent, 0);
+
                     overridePendingTransition(R.anim.fade_in_short, R.anim.fade_out_short);
                 }
 
@@ -224,11 +226,15 @@ public class PageActivity extends Activity {
 
         dc.resetTimer();
 
-        if(resultCode == RESULT_OK){
-            int pn = data.getIntExtra("pangeNumber" , 0);
-            pager.setCurrentItem(pn, false);
+        if(requestCode == 0) {
 
+            if(resultCode == RESULT_OK){
+                int pn = data.getIntExtra("pageNumber" , 0);
+                pager.setCurrentItem(pn, true);
+
+            }
         }
+
 
     }
 
@@ -240,8 +246,8 @@ public class PageActivity extends Activity {
             View page = getLayoutInflater().inflate(R.layout.layout_page, container, false);
             ImageView iv = (ImageView)page.findViewById(R.id.iv_page);
             iv.setImageResource(getResources().getIdentifier("book_" + bookNumber + "_" + position, "drawable", getPackageName()));
-            TextView tv = (TextView)page.findViewById(R.id.tv_debug);
-            tv.setText("" + position);
+//            TextView tv = (TextView)page.findViewById(R.id.tv_debug);
+//            tv.setText("" + position);
 
 
 

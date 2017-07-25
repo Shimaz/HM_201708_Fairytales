@@ -1,40 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="@android:color/black"
-        android:alpha="0.5"></RelativeLayout>
+    android:layout_height="match_parent"
+    android:id="@+id/rl_list_bg">
 
-    <RelativeLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:background="@drawable/page_nav_bg">
 
         <ScrollView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_width="540dp"
+            android:layout_height="742dp"
             android:id="@+id/scrl_index"
-            android:layout_marginBottom="50dp">
+            android:layout_marginLeft="114dp"
+            android:layout_marginTop="142dp">
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:id="@+id/ll_index"
-                android:orientation="vertical"></LinearLayout>
+                android:orientation="vertical"
+                android:paddingTop="26.5dp"></LinearLayout>
 
 
         </ScrollView>
 
-    </RelativeLayout>
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/btn_close"
-        android:text="close"
-        android:layout_centerHorizontal="true"
-        android:layout_alignParentBottom="true"/>
+        android:background="@drawable/btn_list_close"
+        android:layout_marginLeft="354dp"
+        android:layout_marginTop="924dp"/>
 
 </RelativeLayout>

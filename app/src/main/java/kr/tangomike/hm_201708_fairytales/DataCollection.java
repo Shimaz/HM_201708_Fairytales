@@ -16,7 +16,7 @@ public class DataCollection extends Application {
     private boolean isTicking = false;
     private Handler mHandler;
 
-    private MediaPlayer click01;
+//    private MediaPlayer click01;
 
     public void onCreate(){
         super.onCreate();
@@ -46,7 +46,7 @@ public class DataCollection extends Application {
 
         };
 
-        click01 = MediaPlayer.create(this, R.raw.click01);
+//        click01 = MediaPlayer.create(this, R.raw.click02);
 
     }
 
@@ -66,7 +66,9 @@ public class DataCollection extends Application {
     }
 
     public void click(){
-        click01.start();
+//        click01.start();
+
+        MediaPlayer.create(getApplicationContext(), R.raw.click02).start();
     }
 
 }

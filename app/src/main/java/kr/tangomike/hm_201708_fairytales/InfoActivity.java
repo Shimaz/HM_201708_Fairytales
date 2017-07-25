@@ -41,6 +41,7 @@ public class InfoActivity extends Activity {
             @Override
             public void onClick(View v){
 
+                dc.click();
                 dc.resetTimer();
                 finish();
                 overridePendingTransition(R.anim.fade_in_short, R.anim.fade_out_short);
