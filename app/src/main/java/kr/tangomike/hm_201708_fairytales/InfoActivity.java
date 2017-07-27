@@ -52,7 +52,7 @@ public class InfoActivity extends Activity {
 
         int bookNumber = getIntent().getIntExtra("bookNumber", 1);
         ImageView iv = (ImageView)findViewById(R.id.iv_info);
-        iv.setBackgroundResource(getResources().getIdentifier("list_info_" + (bookNumber - 1), "drawable", getPackageName()));
+        iv.setBackgroundResource(getResources().getIdentifier("list_info_" + bookNumber, "drawable", getPackageName()));
 
     }
 

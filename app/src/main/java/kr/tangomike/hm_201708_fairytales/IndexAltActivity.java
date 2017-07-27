@@ -46,7 +46,7 @@ public class IndexAltActivity extends Activity {
 
 
         rlBG = (RelativeLayout)findViewById(R.id.rl_list_bg);
-        rlBG.setBackgroundResource(getResources().getIdentifier("list_bg_" + (bookNumber - 1), "drawable", getPackageName()));
+        rlBG.setBackgroundResource(getResources().getIdentifier("list_bg_" + bookNumber, "drawable", getPackageName()));
 
         llContent = (LinearLayout)findViewById(R.id.ll_index);
 
@@ -71,13 +71,11 @@ public class IndexAltActivity extends Activity {
 
     private void initUI(){
 
-        if(bookNumber == 1){
-//            bookIndex = new int[] {177, 172, 166, 156, 148, 142, 134, 127, 123, 118, 113, 109, 105, 101, 95, 93, 85, 80, 73, 68, 60, 51, 45, 39, 37, 31, 27, 23, 17, 8};
-            bookIndex = new int[] {281, 274, 267, 263, 262, 257, 253, 250, 244, 240, 234, 229, 225, 217, 214, 209, 204, 202, 193, 188, 185, 181, 178, 172, 169, 168, 159, 153, 149, 140, 135, 132, 128, 119, 113, 108, 104, 98, 89, 88, 83, 78, 75, 73, 71, 68, 64, 62, 60, 56, 53, 50, 47, 44, 41, 38, 33, 30, 27, 24, 21, 17, 13, 11, 7};
+        if(bookNumber == 0){
+            bookIndex = new int[]{291,289,287,281,274,267,263,262,257,253,250,244,240,234,229,225,217,214,209,204,202,193,188,185,181,178,172,169,168,159,153,149,140,135,132,128,119,113,108,104,98,89,88,84,83,78,75,73,71,68,64,62,60,56,53,50,47,44,41,38,33,30,27,24,21,17,13,11,7};
 
-        }else if(bookNumber == 2){
-            bookIndex = new int[] {177, 172, 166, 156, 148, 142, 134, 127, 123, 118, 113, 109, 105, 101, 95, 93, 85, 80, 73, 68, 60, 51, 45, 39, 37, 31, 27, 23, 17, 8};
-//            bookIndex = new int[] {281, 274, 267, 263, 262, 257, 253, 250, 244, 240, 234, 229, 225, 217, 214, 209, 204, 202, 193, 188, 185, 181, 178, 172, 169, 168, 159, 153, 149, 140, 135, 132, 128, 119, 113, 108, 104, 98, 89, 88, 83, 78, 75, 73, 71, 68, 64, 62, 60, 56, 53, 50, 47, 44, 41, 38, 33, 30, 27, 24, 21, 17, 13, 11, 7};
+        }else if(bookNumber == 1){
+            bookIndex = new int[]{188,186,183,181,180,177,172,166,156,148,142,134,127,123,118,113,109,105,101,95,93,85,80,73,68,60,51,45,39,37,31,27,23,17,8};
 
         }else{
             bookIndex = new int[] {0, 10, 12, 14, 17, 20, 55, 78, 100};
@@ -93,9 +91,9 @@ public class IndexAltActivity extends Activity {
 
             ImageView ivBtn = new ImageView(this);
             ivBtn.setLayoutParams(lp);
-            ivBtn.setImageResource(getResources().getIdentifier("list_" +  (bookNumber - 1) + "_scroll_btn_" + i, "drawable", getPackageName()));
+            ivBtn.setImageResource(getResources().getIdentifier("list_" +  bookNumber + "_scroll_btn_" + i, "drawable", getPackageName()));
 
-            android.util.Log.i("shimaz", "list_scroll_" + (bookNumber - 1) + "_" + i);
+            android.util.Log.i("shimaz", "list_scroll_" + bookNumber + "_" + i);
 
             Button btn = new Button(this);
             btn.setLayoutParams(lp);
@@ -108,6 +106,7 @@ public class IndexAltActivity extends Activity {
                 public void onClick(View view) {
                     dc.resetTimer();
 
+                    dc.click();
                     Intent intent = new Intent();
                     intent.putExtra("pageNumber", bookIndex[(int)view.getTag()]);
                     setResult(RESULT_OK, intent);

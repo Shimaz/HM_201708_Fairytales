@@ -57,7 +57,7 @@ public class PageActivity extends Activity {
 
         dc = (DataCollection)getApplicationContext();
 //        pageNumber = getIntent().getIntExtra("pageNumber", 0);
-        bookNumber = getIntent().getIntExtra("bookNumber", 1);
+        bookNumber = getIntent().getIntExtra("bookNumber", 0);
 
 
         adapter = new FairytalePagerAdapter();
@@ -270,10 +270,10 @@ public class PageActivity extends Activity {
 
         @Override
         public int getCount() {
-            if(bookNumber == 1){
-                return 189;
-            }else if(bookNumber == 2){
+            if(bookNumber == 0){
                 return 292;
+            }else if(bookNumber == 1){
+                return 189;
             }else{
                 return 300;
             }

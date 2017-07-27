@@ -55,7 +55,7 @@ public class MainActivity extends Activity {
             @Override
             public void onClick(View v){
                 Intent intent = new Intent(MainActivity.this, PageActivity.class);
-                intent.putExtra("bookNumber", 2);
+                intent.putExtra("bookNumber", 0);
                 dc.click();
                 startActivity(intent);
                 overridePendingTransition(R.anim.fade_in_short, R.anim.fade_out_short);
@@ -82,7 +82,7 @@ public class MainActivity extends Activity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(MainActivity.this, PageActivity.class);
-                intent.putExtra("bookNumber", 3);
+                intent.putExtra("bookNumber", 2);
                 dc.click();
                 startActivity(intent);
                 overridePendingTransition(R.anim.fade_in_short, R.anim.fade_out_short);
@@ -94,7 +94,7 @@ public class MainActivity extends Activity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(MainActivity.this, InfoActivity.class);
-                intent.putExtra("bookNumber", 1);
+                intent.putExtra("bookNumber", 0);
                 dc.click();
                 startActivity(intent);
                 overridePendingTransition(R.anim.fade_in_short, R.anim.fade_out_short);
@@ -106,7 +106,7 @@ public class MainActivity extends Activity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(MainActivity.this, InfoActivity.class);
-                intent.putExtra("bookNumber", 2);
+                intent.putExtra("bookNumber", 1);
                 dc.click();
                 startActivity(intent);
                 overridePendingTransition(R.anim.fade_in_short, R.anim.fade_out_short);
@@ -118,7 +118,7 @@ public class MainActivity extends Activity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(MainActivity.this, InfoActivity.class);
-                intent.putExtra("bookNumber", 3);
+                intent.putExtra("bookNumber", 2);
                 dc.click();
                 startActivity(intent);
                 overridePendingTransition(R.anim.fade_in_short, R.anim.fade_out_short);

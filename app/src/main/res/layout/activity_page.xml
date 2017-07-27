@@ -3,10 +3,11 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+
     <android.support.v4.view.ViewPager
         android:id="@+id/vp_page"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="wrap_content">
 
     </android.support.v4.view.ViewPager>
 
@@ -15,7 +16,7 @@
     <RelativeLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="384dp"
+        android:layout_alignParentRight="true"
         android:layout_marginTop="925dp"
         android:id="@+id/ll_control"
         android:background="@drawable/page_nav_bg">
